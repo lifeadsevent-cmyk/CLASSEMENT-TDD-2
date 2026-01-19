@@ -1,11 +1,11 @@
 
 import React, { useState, useMemo } from 'react';
-import { RAW_PLAYER_DATA, ALLIANCE_AVERAGES } from './data';
-import { PlayerData, SortKey, SortOrder } from './types';
-import StatsTable from './components/StatsTable';
-import DashboardCards from './components/DashboardCards';
-import PerformanceChart from './components/PerformanceChart';
-import UnitsView from './components/UnitsView';
+import { RAW_PLAYER_DATA, ALLIANCE_AVERAGES } from './data.ts';
+import { PlayerData, SortKey, SortOrder } from './types.ts';
+import StatsTable from './components/StatsTable.tsx';
+import DashboardCards from './components/DashboardCards.tsx';
+import PerformanceChart from './components/PerformanceChart.tsx';
+import UnitsView from './components/UnitsView.tsx';
 
 /**
  * Main Application Component
@@ -92,7 +92,6 @@ const App: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
         {activeTab === 'stats' ? (
           <>
-            {/* Dashboard Overview */}
             <section id="dashboard">
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 space-y-4 md:space-y-0">
                 <div>
@@ -107,7 +106,6 @@ const App: React.FC = () => {
               <DashboardCards averages={ALLIANCE_AVERAGES} totalPlayers={RAW_PLAYER_DATA.length} />
             </section>
 
-            {/* Charts and Visuals */}
             <section id="performance" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700/50 shadow-inner">
                 <h3 className="text-lg font-semibold mb-6 flex items-center">
@@ -133,7 +131,6 @@ const App: React.FC = () => {
               </div>
             </section>
 
-            {/* Detailed Stats Table */}
             <section id="stats" className="space-y-4">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
@@ -172,7 +169,6 @@ const App: React.FC = () => {
         )}
       </main>
 
-      {/* Footer */}
       <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-slate-500 text-sm">
         <p>© 2024 Alliance Leaderboard Pro - Généré dynamiquement.</p>
       </footer>

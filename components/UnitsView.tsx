@@ -1,7 +1,7 @@
 
 import React, { useMemo } from 'react';
-import { RAW_PLAYER_DATA } from '../data';
-import { PlayerData } from '../types';
+import { RAW_PLAYER_DATA } from '../data.ts';
+import { PlayerData } from '../types.ts';
 
 /**
  * UnitsView Component
@@ -30,10 +30,8 @@ const UnitsView: React.FC = () => {
     top40.forEach((player) => {
       currentTotalProcessedPower += player.power;
       
-      // On décide de l'unité en fonction de l'objectif de ratio (55%)
-      // Si l'ajout à Alpha rapproche du ratio cible sans dépasser 20 membres
       const potentialAlphaRatio = (currentAlphaPower + player.power) / currentTotalProcessedPower;
-      const needsAlpha = potentialAlphaRatio <= targetAlphaRatio + 0.05; // Marge de tolérance pour le mélange
+      const needsAlpha = potentialAlphaRatio <= targetAlphaRatio + 0.05; 
 
       if ((needsAlpha && alphaSquad.length < 20) || bravoSquad.length >= 20) {
         alphaSquad.push(player);
@@ -98,7 +96,6 @@ const UnitsView: React.FC = () => {
 
     return (
       <div className={`flex flex-col h-full bg-slate-900/80 border ${borderColor} rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md`}>
-        {/* Header Tactique */}
         <div className={`p-8 bg-gradient-to-b ${gradient} border-b ${borderColor}`}>
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center space-x-3">
@@ -125,7 +122,6 @@ const UnitsView: React.FC = () => {
           </div>
         </div>
 
-        {/* Liste des Joueurs */}
         <div className="flex-1 p-6 space-y-3 overflow-y-auto max-h-[600px] scrollbar-thin">
           <div className="flex items-center justify-between mb-4 px-2">
             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Personnel de Combat ({players.length})</span>
@@ -149,7 +145,6 @@ const UnitsView: React.FC = () => {
           ))}
         </div>
 
-        {/* Section Remplaçants */}
         <div className="p-6 bg-black/40 border-t border-slate-800">
           <div className="flex items-center space-x-2 mb-4">
             <svg className={`w-4 h-4 ${accentColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +167,6 @@ const UnitsView: React.FC = () => {
 
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      {/* Header Page */}
       <div className="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 shadow-2xl">
         <div className="absolute top-0 right-0 p-8 opacity-10">
           <svg className="w-32 h-32 text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
@@ -186,13 +180,12 @@ const UnitsView: React.FC = () => {
           <h2 className="text-4xl font-black text-white tracking-tight uppercase mb-2">Déploiement Stratégique</h2>
           <p className="text-slate-400 max-w-2xl leading-relaxed">
             Répartition par <span className="text-white font-bold">mélange de rangs</span> optimisée. 
-            L'algorithme garantit que chaque unité possède un panel de joueurs de tous niveaux tout en respectant l'objectif : 
+            Chaque unité possède un panel équilibré de joueurs tout en respectant l'objectif : 
             <span className="text-indigo-400 font-bold ml-1">55% Alpha</span> / <span className="text-rose-400 font-bold ml-1">45% Bravo</span>.
           </p>
         </div>
       </div>
 
-      {/* Grid Unités */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         <UnitCard 
           title="Unité Alpha"
@@ -212,7 +205,6 @@ const UnitsView: React.FC = () => {
         />
       </div>
 
-      {/* Recapitulatif Technique */}
       <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
         <div className="flex items-center space-x-6">
           <div className="w-16 h-16 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center">
