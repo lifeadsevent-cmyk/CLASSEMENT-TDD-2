@@ -1,11 +1,11 @@
 
 import React, { useState, useMemo } from 'react';
-import { RAW_PLAYER_DATA, ALLIANCE_AVERAGES } from './data.ts';
-import { PlayerData, SortKey, SortOrder } from './types.ts';
-import StatsTable from './components/StatsTable.tsx';
-import DashboardCards from './components/DashboardCards.tsx';
-import PerformanceChart from './components/PerformanceChart.tsx';
-import UnitsView from './components/UnitsView.tsx';
+import { RAW_PLAYER_DATA, ALLIANCE_AVERAGES } from './data';
+import { PlayerData, SortKey, SortOrder } from './types';
+import StatsTable from './components/StatsTable';
+import DashboardCards from './components/DashboardCards';
+import PerformanceChart from './components/PerformanceChart';
+import UnitsView from './components/UnitsView';
 
 /**
  * Main Application Component
@@ -16,16 +16,13 @@ const App: React.FC = () => {
   const [sortKey, setSortKey] = useState<SortKey>('scoreFinal');
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
 
-  // Filter and Sort Logic
   const processedData = useMemo(() => {
     let data = [...RAW_PLAYER_DATA];
 
-    // Filter by name
     if (searchTerm) {
       data = data.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
     }
 
-    // Sort
     data.sort((a, b) => {
       const valA = a[sortKey];
       const valB = b[sortKey];
@@ -61,7 +58,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen pb-12">
-      {/* Header */}
       <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">

@@ -1,7 +1,7 @@
 
 import React, { useMemo } from 'react';
-import { RAW_PLAYER_DATA } from '../data.ts';
-import { PlayerData } from '../types.ts';
+import { RAW_PLAYER_DATA } from '../data';
+import { PlayerData } from '../types';
 
 /**
  * UnitsView Component
@@ -10,7 +10,6 @@ import { PlayerData } from '../types.ts';
  */
 const UnitsView: React.FC = () => {
   const { alphaSquad, bravoSquad, alphaReplacements, bravoReplacements, stats } = useMemo(() => {
-    // 1. On récupère les joueurs classés par Score Final (déjà triés dans RAW_PLAYER_DATA)
     const sortedByRank = [...RAW_PLAYER_DATA].sort((a, b) => b.scoreFinal - a.scoreFinal);
     
     const top40 = sortedByRank.slice(0, 40);
@@ -25,8 +24,6 @@ const UnitsView: React.FC = () => {
     let currentAlphaPower = 0;
     let currentTotalProcessedPower = 0;
 
-    // 2. Algorithme de répartition "Rank-Mix" avec équilibrage de puissance
-    // On parcourt par rang pour garantir un mélange homogène des niveaux.
     top40.forEach((player) => {
       currentTotalProcessedPower += player.power;
       
@@ -41,7 +38,6 @@ const UnitsView: React.FC = () => {
       }
     });
 
-    // 3. Répartition des remplaçants (Alternance pour le mélange)
     const alphaReplacements: PlayerData[] = [];
     const bravoReplacements: PlayerData[] = [];
     
