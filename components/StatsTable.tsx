@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { PlayerData, SortKey, SortOrder } from '../types';
+import { PlayerData, SortKey, SortOrder } from '../types.ts';
 
 interface StatsTableProps {
   data: PlayerData[];

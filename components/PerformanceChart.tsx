@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   BarChart, 
@@ -10,7 +9,7 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts';
-import { PlayerData } from '../types';
+import { PlayerData } from '../types.ts';
 
 interface PerformanceChartProps {
   data: PlayerData[];

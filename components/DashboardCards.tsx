@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { AverageStats } from '../types';
+import { AverageStats } from '../types.ts';
 
 interface DashboardCardsProps {
   averages: AverageStats;

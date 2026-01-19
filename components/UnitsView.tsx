@@ -1,7 +1,6 @@
-
 import React, { useMemo } from 'react';
-import { RAW_PLAYER_DATA } from '../data';
-import { PlayerData } from '../types';
+import { RAW_PLAYER_DATA } from '../data.ts';
+import { PlayerData } from '../types.ts';
 
 /**
  * UnitsView Component
