@@ -2,10 +2,10 @@
 import React, { useState, useMemo } from 'react';
 import { RAW_PLAYER_DATA, ALLIANCE_AVERAGES } from './data.ts';
 import { PlayerData, SortKey, SortOrder } from './types.ts';
-import StatsTable from './components/StatsTable.tsx';
-import DashboardCards from './components/DashboardCards.tsx';
-import PerformanceChart from './components/PerformanceChart.tsx';
-import UnitsView from './components/UnitsView.tsx';
+import statstable from './components/statstable.tsx';
+import dashboardcards from './components/dashboardcards.tsx';
+import performancechart from './components/performancechart.tsx';
+import unitsview from './components/unitsview.tsx';
 
 /**
  * Main Application Component
